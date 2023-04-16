@@ -6,11 +6,11 @@ import setuptools.command.install
 
 __base__ = {
     'name':'midi', 
-    'version':'v0.2.4',
+    'version':'0.2.4',
     'description':'Python MIDI API',
     'author':'giles hall',
     'author_email':'ghall@csh.rit.edu',
-    'package_dir':{'midi':'src'},
+    'package_dir':{'src/midi'},
     'py_modules':['midi.containers', 'midi.__init__', 'midi.events', 'midi.util', 'midi.fileio', 'midi.constants'],
     'ext_modules':[],
     'ext_package':'',

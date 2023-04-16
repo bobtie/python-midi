@@ -1,8 +1,14 @@
+# import pathlib
+# import sys
+
+# print("**RT:", pathlib.Path(__file__).parent.resolve())
+# sys.path.append(str(pathlib.Path(__file__).parent.resolve()))
+
 import unittest
-import midi
-import mary_test
+from . import mary as mary_test
 import time
 import os
+import midi
 
 try:
     import midi.sequencer as sequencer

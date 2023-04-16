@@ -1,0 +1,33 @@
+[project]
+name = "python-midi"
+version = "2.0.4"
+authors = [
+  { name='giles hall', email='ghall@csh.rit.edu' },
+]
+description = ""
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+
+[project.urls]
+# "Homepage" = "https://github.com/pypa/sampleproject"
+# "Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+min_version = 4.0
+
+[testenv]
+deps = pytest
+commands = pytest tests
+"""
