@@ -18,18 +18,21 @@ class EventRegistry(object):
             raise ValueError("Unknown bases class in event type: "+event.name)
     register_event = classmethod(register_event)
 
+class MetaAbstractEvent(type):
 
-class AbstractEvent(object):
+    def __init__(cls, name, bases, dict):
+
+        type.__init__(cls,name, bases, dict)
+
+        if name not in ['AbstractEvent', 'Event', 'MetaEvent', 'NoteEvent',
+                        'MetaEventWithText']:
+            EventRegistry.register_event(cls, bases)
+
+class AbstractEvent(object,metaclass=MetaAbstractEvent):
     # __slots__ = ['tick', 'data']
     name = "Generic MIDI Event"
     length = 0
     statusmsg = 0x0
-
-    class __metaclass__(type):
-        def __init__(cls, name, bases, dict):
-            if name not in ['AbstractEvent', 'Event', 'MetaEvent', 'NoteEvent',
-                            'MetaEventWithText']:
-                EventRegistry.register_event(cls, bases)
 
     def __init__(self, **kw):
         if type(self.length) == int:
