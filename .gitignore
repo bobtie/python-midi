@@ -4,3 +4,4 @@ build
 .*.sw?
 *.bak
 *.so
+/examples/example.mid
